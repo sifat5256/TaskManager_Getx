@@ -1,10 +1,7 @@
-import 'dart:convert';
+
 
 import 'package:apps/controller/auth_controller.dart';
-import 'package:apps/data_network_coller/data_utility/urls.dart';
-import 'package:apps/data_network_coller/model_api/usermodel.dart';
-import 'package:apps/data_network_coller/network_coller.dart';
-import 'package:apps/data_network_coller/network_responce.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,45 +29,11 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
    Authcontroller authcontroller = Get.find<Authcontroller>();
   Editprofilecontroller _editprofilecontroller=Get.find<Editprofilecontroller>();
   Future<void> getupdateprofile() async {
-    // upgradeprofileinprogress = true;
-    // if (mounted) {
-    //   setState(() {});
-    // }
-    // String? photoInBase64;
-    // Map<String, dynamic> inputdata = {
-    //   "email": _emailtext.text.trim(),
-    //   "firstName": _fastnametext.text.trim(),
-    //   "lastName": _lastnametext.text.trim(),
-    //   "mobile": _mobiletext.text.trim(),
-    //   "password": "",
-    //   "photo": ""
-    // };
-    // if (_passwordtext.text.isNotEmpty) {
-    //   inputdata["password"] = _passwordtext.text;
-    // }
-    // if (photo != null) {
-    //   List<int> imageByte = await photo!.readAsBytes();
-    //   photoInBase64 = base64Encode(imageByte);
-    //   inputdata["photo"] = photoInBase64;
-    // }
-    //
-    // final Networkresponce networkresponce =
-    //     await Networkcoller().Postrequest(Urls.upgradeprofile, body: inputdata);
-    //
-    // upgradeprofileinprogress = false;
-    // if (mounted) {
-    //   setState(() {});
-    // }
+
 final responce =await _editprofilecontroller.getupdateprofile(
     _emailtext.text, _fastnametext.text, _lastnametext.text,_mobiletext.text, _passwordtext.text);
     if (responce) {
-      // Get.find<Authcontroller>().upgradeinformation(Data(
-      //     email: _emailtext.text.trim(),
-      //     firstName: _fastnametext.text.trim(),
-      //     lastName: _lastnametext.text.trim(),
-      //     mobile: _mobiletext.text.trim(),
-      //     photo: photoInBase64 ?? authcontroller.user?.photo));
-      // if (mounted) {
+
         SnackMessege(context, _editprofilecontroller.editText);
 
     } else {
